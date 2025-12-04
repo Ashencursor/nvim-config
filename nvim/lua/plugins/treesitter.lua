@@ -5,7 +5,7 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("nvim-treesitter.configs").setup {
-				ensure_installed = { "c", "cpp", "lua" },
+				ensure_installed = { "c", "cpp", "lua", "rust" },
 				highlight = { enabled = true },
 				indent = { enable = false },
 				incremental_selection = { enable = true },

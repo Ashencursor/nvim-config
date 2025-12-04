@@ -29,6 +29,10 @@ vim.lsp.config("rust_analyzer", {
     settings = {
         ["rust-analyzer"] = {
             cargo = { allFeatures = true },
+						checkOnSave = { enable = false },
+						checkOnChange = true,
+						-- inlayHints = { enable = true }, -- disable when cracked
+
             check = { command = "clippy" },
         }
     }
