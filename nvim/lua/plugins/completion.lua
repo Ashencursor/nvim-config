@@ -10,7 +10,7 @@ return {
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                    --vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
                     require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
                     vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
 
@@ -36,7 +36,7 @@ return {
             }),
             sources = cmp.config.sources({
                 {name = 'nvim_lsp'},
-                {name = 'luasnip'} 
+                {name = 'luasnip'}
             }, {{
                 name = 'buffer'
             }})
