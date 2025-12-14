@@ -12,13 +12,15 @@ local function on_attach(_, bufnr)
 end
 
 -- defaults to all servers
-vim.lsp.config("*", {
-    on_attach = on_attach,
-})
+--vim.lsp.config("*", {
+--    on_attach = on_attach,
+--   opts = opts,
+--})
 
 -- Rust
 vim.lsp.config("rust_analyzer", {
     filetypes = { "rust" },
+    on_attach = on_attach,
     settings = {
         ["rust-analyzer"] = {
             cargo = { allFeatures = true },
@@ -32,6 +34,7 @@ vim.lsp.config("rust_analyzer", {
 -- C++
 vim.lsp.config("clangd", {
     filetypes = { "c", "cpp", "objc", "objcpp" },
+    on_attach = on_attach,
     cmd = {
         "clangd",
         "--background-index",
