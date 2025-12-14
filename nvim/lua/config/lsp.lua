@@ -1,9 +1,3 @@
--- Capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-pcall(function()
-    capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-end)
-
 -- Keymaps to all servers
 local function on_attach(_, bufnr)
     local opts = { buffer = bufnr }
@@ -20,7 +14,6 @@ end
 -- defaults to all servers
 vim.lsp.config("*", {
     on_attach = on_attach,
-    capabilities = capabilities,
 })
 
 -- Rust
@@ -31,8 +24,6 @@ vim.lsp.config("rust_analyzer", {
             cargo = { allFeatures = true },
 						checkOnSave = { enable = false },
 						checkOnChange = true,
-						-- inlayHints = { enable = true }, -- disable when cracked
-
             check = { command = "clippy" },
         }
     }

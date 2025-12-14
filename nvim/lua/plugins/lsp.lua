@@ -1,18 +1,13 @@
-return {
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "williamboman/mason.nvim",
-			"mason-org/mason-lspconfig.nvim",
-    },
+return {{
+    "mason-org/mason.nvim",
+    opts = {},
+    dependencies = {"neovim/nvim-lspconfig"},
+
     config = function()
-			-- Optional: Automatically install specified language servers
-      require("mason").setup()
-			require("mason-lspconfig").setup({
-			ensure_installed = { "clangd", "rust_analyzer", "lua_ls" },
-			automatic_enable = true, -- Enable all installed servers by default
-		})
-      require("config.lsp")   -- <-- loads the whole folder/file
-    end,
-  },
-}
+        -- require("nvim-lspconfig")
+        require("mason").setup() -- install and manage LSP servers
+        require("lspconfig") -- nvim-lspconfig is a collection of LSP server configurations for the Nvim LSP client
+
+        require('config.lsp')
+    end
+}}
